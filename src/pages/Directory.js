@@ -6,8 +6,7 @@ import Row from "../components/Row";
 import Col from "../components/Col";
 import EmployeeList from "../components/EmployeeList";
 
-// import jumpingPeople from "../../public/jumpingPeople.jpg";
-// <Hero backgroundImage="https://i.imgur.com/qkdpN.jpg">
+
 
 class Directory extends Component {
   state = {
@@ -18,7 +17,10 @@ class Directory extends Component {
 
   componentDidMount() {
     API.getEmployeesList()
-      .then(res => this.setState({ employees: res.data.message }))
+      .then(res => {
+        console.log(res.data);
+        this.setState({ employees: res.data.request });
+      })
       .catch(err => console.log(err));
   }
 
