@@ -1,5 +1,6 @@
 import React from "react";
 import "./style.css";
+import { Link } from "react-router-dom";
 
 function EmployeeList(props) {
   return (
@@ -25,18 +26,18 @@ function EmployeeList(props) {
             <td key={employee}>
               {employee.phone}
             </td>
-            <td key={employee}>
-              {employee.email}
+            <td key={employee} type="email">
+              <Link>
+                {employee.email}
+              </Link>
             </td>
             <td key={employee}>
-              {employee.dob.date}
+              {employee.dob.date.slice(0,10)}
             </td>
           </tr>
         ))}
       </tbody>
     </table>
-
-
   );
 }
 
