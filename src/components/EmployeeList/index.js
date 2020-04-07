@@ -2,6 +2,15 @@ import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
+function formatDOB(dob) {
+  let year = dob.slice(0,4);
+  let month = dob.slice(5,7);
+  let day = dob.slice(8,10);
+  
+  let newDate = month + "/" + day + "/" + year;
+  return newDate;
+}
+
 function EmployeeList(props) {
   return (
     <table className="table table-bordered table-hover">
@@ -32,7 +41,7 @@ function EmployeeList(props) {
               </Link>
             </td>
             <td key={employee}>
-              {employee.dob.date.slice(0,10)}
+              {formatDOB(employee.dob.date)}
             </td>
           </tr>
         ))}
