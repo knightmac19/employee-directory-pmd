@@ -1,0 +1,9 @@
+.jumbotron {
+  border-bottom: 4px solid orange;
+  color: white;
+  background-color: navy;
+}
+
+.jumbotron h1 {
+  padding-bottom: 30px;
+}
