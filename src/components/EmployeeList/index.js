@@ -25,22 +25,22 @@ function EmployeeList(props) {
       </thead>
       <tbody>
         {props.employees.map(employee => (
-          <tr>
-            <td key={employee}>
+          <tr key={employee.id.value}>
+            <td>
               <img alt="IMG" src={employee.picture.thumbnail} className="img" />
             </td>
-            <td key={employee}>
+            <td>
               {employee.name.first} {employee.name.last}
             </td>
-            <td key={employee}>
+            <td>
               {employee.phone}
             </td>
-            <td key={employee} type="email">
-              <Link>
+            <td type="email">
+              <Link to={employee.email}>
                 {employee.email}
               </Link>
             </td>
-            <td key={employee}>
+            <td>
               {formatDOB(employee.dob.date)}
             </td>
           </tr>
