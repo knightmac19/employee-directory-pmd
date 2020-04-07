@@ -1,0 +1,10 @@
+.search-bar {
+  background: #E5E5E5;
+  padding-top:1rem;
+  padding-bottom:1rem;
+}
+.search-form {
+  width:50%;
+  margin-right:auto;
+  margin-left:auto;
+}

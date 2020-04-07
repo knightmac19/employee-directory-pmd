@@ -4,6 +4,7 @@ import API from "../utils/API";
 import Container from "../components/Container";
 import Row from "../components/Row";
 import Col from "../components/Col";
+import SearchBar from "../components/SearchBar";
 import EmployeeList from "../components/EmployeeList";
 
 
@@ -28,14 +29,15 @@ class Directory extends Component {
   render() {
     return (
       <div>
-        <hr/>
-        
-        <Container style={{ marginTop: 30 }}>
+        <Container>
           <Row>
             <Col size="md-12">
-              <h1>Employee Directory</h1>
+              <SearchBar />
             </Col>
           </Row>
+        </Container>
+        <hr />
+        <Container style={{ marginTop: 30 }}>
           <Row>
             <Col size="md-12">
               <EmployeeList employees={this.state.employees}/>
