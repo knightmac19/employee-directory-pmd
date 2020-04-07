@@ -19,14 +19,16 @@ class Directory extends Component {
   componentDidMount() {
     API.getEmployeesList()
       .then(res => {
-        console.log(res.data);
-        this.setState({ employees: res.data.request });
+        console.log(res.data.results);
+        this.setState({ employees: res.data.results });
+        
       })
       .catch(err => console.log(err));
   }
 
-
+  // console.log(`This.state: ${this.state.employees}`);
   render() {
+    console.log(this.state.employees);
     return (
       <div>
         <Container>

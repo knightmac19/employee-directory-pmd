@@ -6,7 +6,7 @@ function EmployeeList(props) {
     <table className="table table-bordered table-hover">
       <thead className="thead-dark">
         <tr>
-          <th scope="col">#</th>
+          <th scope="col">Image</th>
           <th scope="col">Name</th>
           <th scope="col">Phone</th>
           <th scope="col">Email</th>
@@ -14,27 +14,25 @@ function EmployeeList(props) {
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark Otto</td>
-          <td>(555)-123-4567</td>
-          <td>markOtto@mark.otto</td>
-          <td>3-16-1947</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Mark Otto</td>
-          <td>(555)-123-4567</td>
-          <td>markOtto@mark.otto</td>
-          <td>3-16-1947</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td>Mark Otto</td>
-          <td>(555)-123-4567</td>
-          <td>markOtto@mark.otto</td>
-          <td>3-16-1947</td>
-        </tr>
+        {props.employees.map(employee => (
+          <tr>
+            <td key={employee}>
+              <img alt="IMG" src={employee.picture.thumbnail} className="img" />
+            </td>
+            <td key={employee}>
+              {employee.name.first} {employee.name.last}
+            </td>
+            <td key={employee}>
+              {employee.phone}
+            </td>
+            <td key={employee}>
+              {employee.email}
+            </td>
+            <td key={employee}>
+              {employee.dob.date}
+            </td>
+          </tr>
+        ))}
       </tbody>
     </table>
 
