@@ -47,7 +47,7 @@ class Directory extends Component {
                     emp.name.last + " " + 
                     emp.phone + " " + 
                     emp.email + " " + 
-                    emp.dob.date
+                    this.formatDOB(emp.dob.date)
           }
           return fullArr;
         })
