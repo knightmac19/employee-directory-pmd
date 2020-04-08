@@ -11,6 +11,11 @@ function formatDOB(dob) {
   return newDate;
 }
 
+function formatName(first, last) {
+  let fullName = first + " " + last;
+  return fullName;
+}
+
 function EmployeeList(props) {
   return (
     <table className="table table-bordered table-hover">
@@ -24,27 +29,55 @@ function EmployeeList(props) {
         </tr>
       </thead>
       <tbody>
-        {props.employees.map(employee => (
-          <tr key={employee.id.value}>
-            <td>
-              <img alt="IMG" src={employee.picture.thumbnail} className="img" />
-            </td>
-            <td>
-              {employee.name.first} {employee.name.last}
-            </td>
-            <td>
-              {employee.phone}
-            </td>
-            <td type="email">
-              <Link to={employee.email}>
-                {employee.email}
-              </Link>
-            </td>
-            <td>
-              {formatDOB(employee.dob.date)}
-            </td>
-          </tr>
-        ))}
+        {
+          (props.search === "")
+          ? props.employees.map(employee => (
+            <tr key={employee.id.value}>
+              <td>
+                <img alt="IMG" 
+                src={employee.picture.thumbnail} 
+                className="img" />
+              </td>
+              <td>
+                {formatName(employee.name.first, employee.name.last)}
+              </td>
+              <td>
+                {employee.phone}
+              </td>
+              <td type="email">
+                <Link to={employee.email}>
+                  {employee.email}
+                </Link>
+              </td>
+              <td>
+                {formatDOB(employee.dob.date)}
+              </td>
+            </tr>
+          ))
+          : props.employees.filter(employee => (employee.name.first || employee.name.last || employee.phone || employee.email || employee.dob.date).includes(props.search)).map(filteredEmp => (
+            <tr key={filteredEmp.id.value}>
+              <td>
+                <img alt="IMG" 
+                src={filteredEmp.picture.thumbnail} 
+                className="img" />
+              </td>
+              <td>
+                {formatName(filteredEmp.name.first, filteredEmp.name.last)}
+              </td>
+              <td>
+                {filteredEmp.phone}
+              </td>
+              <td type="email">
+                <Link to={filteredEmp.email}>
+                  {filteredEmp.email}
+                </Link>
+              </td>
+              <td>
+                {formatDOB(filteredEmp.dob.date)}
+              </td>
+            </tr>
+          ))
+        }
       </tbody>
     </table>
   );

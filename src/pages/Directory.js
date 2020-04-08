@@ -11,8 +11,9 @@ import EmployeeList from "../components/EmployeeList";
 
 class Directory extends Component {
   state = {
+    search: "",
     employees: [],
-    error: "",
+    error: ""
   };
 
 
@@ -26,6 +27,10 @@ class Directory extends Component {
       .catch(err => console.log(err));
   }
 
+  handleInputChange = event => {
+    this.setState({ search: event.target.value});
+  }
+
   // console.log(`This.state: ${this.state.employees}`);
   render() {
     console.log(this.state.employees);
@@ -34,7 +39,9 @@ class Directory extends Component {
         <Container>
           <Row>
             <Col size="md-12">
-              <SearchBar />
+              <SearchBar 
+                handleInputChange={this.handleInputChange}
+              />
             </Col>
           </Row>
         </Container>
@@ -42,7 +49,10 @@ class Directory extends Component {
         <Container style={{ marginTop: 30 }}>
           <Row>
             <Col size="md-12">
-              <EmployeeList employees={this.state.employees}/>
+              <EmployeeList 
+                employees={this.state.employees}
+                search={this.state.search}
+              />
             </Col>
           </Row>
         </Container>
