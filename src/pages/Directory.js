@@ -16,13 +16,43 @@ class Directory extends Component {
     error: ""
   };
 
+  formatDOB = dob => {
+    let year = dob.slice(0,4);
+    let month = dob.slice(5,7);
+    let day = dob.slice(8,10);
+    
+    let newDate = month + "/" + day + "/" + year;
+    return newDate;
+  }
+  
+  formatName = (first, last) => {
+    let fullName = first + " " + last;
+    return fullName;
+  }
 
   componentDidMount() {
     API.getEmployeesList()
       .then(res => {
         console.log(res.data.results);
-        this.setState({ employees: res.data.results });
-        
+        let empArr = res.data.results;
+        let newObj = empArr.map(emp => {
+          let fullArr = {
+            id: emp.id.value,
+            thumbnail: emp.picture.thumbnail,
+            name: this.formatName(emp.name.first, emp.name.last),
+            phone: emp.phone,
+            email: emp.email,
+            dob: this.formatDOB(emp.dob.date),
+            meta: emp.name.first + " " + 
+                    emp.name.last + " " + 
+                    emp.phone + " " + 
+                    emp.email + " " + 
+                    emp.dob.date
+          }
+          return fullArr;
+        })
+
+        this.setState({ employees: newObj })
       })
       .catch(err => console.log(err));
   }

@@ -2,19 +2,6 @@ import React from "react";
 import "./style.css";
 import { Link } from "react-router-dom";
 
-function formatDOB(dob) {
-  let year = dob.slice(0,4);
-  let month = dob.slice(5,7);
-  let day = dob.slice(8,10);
-  
-  let newDate = month + "/" + day + "/" + year;
-  return newDate;
-}
-
-function formatName(first, last) {
-  let fullName = first + " " + last;
-  return fullName;
-}
 
 function EmployeeList(props) {
   return (
@@ -32,14 +19,14 @@ function EmployeeList(props) {
         {
           (props.search === "")
           ? props.employees.map(employee => (
-            <tr key={employee.id.value}>
+            <tr key={employee.id}>
               <td>
                 <img alt="IMG" 
-                src={employee.picture.thumbnail} 
+                src={employee.thumbnail} 
                 className="img" />
               </td>
               <td>
-                {formatName(employee.name.first, employee.name.last)}
+                {employee.name}
               </td>
               <td>
                 {employee.phone}
@@ -50,19 +37,19 @@ function EmployeeList(props) {
                 </Link>
               </td>
               <td>
-                {formatDOB(employee.dob.date)}
+                {employee.dob}
               </td>
             </tr>
           ))
-          : props.employees.filter(employee => (employee.name.first || employee.name.last || employee.phone || employee.email || employee.dob.date).includes(props.search)).map(filteredEmp => (
-            <tr key={filteredEmp.id.value}>
+          : props.employees.filter(employee => employee.meta.includes(props.search)).map(filteredEmp => (
+            <tr key={filteredEmp.id}>
               <td>
                 <img alt="IMG" 
-                src={filteredEmp.picture.thumbnail} 
+                src={filteredEmp.thumbnail} 
                 className="img" />
               </td>
               <td>
-                {formatName(filteredEmp.name.first, filteredEmp.name.last)}
+                {filteredEmp.name}
               </td>
               <td>
                 {filteredEmp.phone}
@@ -73,7 +60,7 @@ function EmployeeList(props) {
                 </Link>
               </td>
               <td>
-                {formatDOB(filteredEmp.dob.date)}
+                {filteredEmp.dob}
               </td>
             </tr>
           ))
