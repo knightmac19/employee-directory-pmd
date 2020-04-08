@@ -35,6 +35,7 @@ class Directory extends Component {
       .then(res => {
         console.log(res.data.results);
         let empArr = res.data.results;
+        
         let newObj = empArr.map(emp => {
           let fullArr = {
             id: emp.id.value,
