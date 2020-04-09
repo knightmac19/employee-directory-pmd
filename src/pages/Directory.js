@@ -45,10 +45,10 @@ class Directory extends Component {
             email: emp.email,
             dob: this.formatDOB(emp.dob.date),
             meta: emp.name.first + " " + 
-                    emp.name.last + " " + 
-                    emp.phone + " " + 
-                    emp.email + " " + 
-                    this.formatDOB(emp.dob.date)
+                  emp.name.last + " " + 
+                  emp.phone + " " + 
+                  emp.email + " " + 
+                  this.formatDOB(emp.dob.date)
           }
           return fullArr;
         })
