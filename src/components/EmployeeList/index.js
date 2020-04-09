@@ -45,8 +45,9 @@ function EmployeeList(props) {
             <tr key={filteredEmp.id}>
               <td>
                 <img alt="IMG" 
-                src={filteredEmp.thumbnail} 
-                className="img" />
+                  src={filteredEmp.thumbnail} 
+                  className="img" 
+                />
               </td>
               <td>
                 {filteredEmp.name}

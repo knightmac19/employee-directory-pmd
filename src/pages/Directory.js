@@ -26,7 +26,7 @@ class Directory extends Component {
   }
   
   formatName = (first, last) => {
-    let fullName = first + " " + last;
+    let fullName = last + ", " + first;
     return fullName;
   }
 
@@ -34,9 +34,8 @@ class Directory extends Component {
     API.getEmployeesList()
       .then(res => {
         console.log(res.data.results);
-        let empArr = res.data.results;
         
-        let newObj = empArr.map(emp => {
+        let newObj = res.data.results.map(emp => {
           let fullArr = {
             id: emp.id.value,
             thumbnail: emp.picture.thumbnail,
