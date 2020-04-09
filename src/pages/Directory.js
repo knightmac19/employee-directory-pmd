@@ -13,8 +13,27 @@ class Directory extends Component {
   state = {
     search: "",
     employees: [],
-    error: ""
+    error: "",
+    currentSort: "up"
   };
+
+  onSortChange = () => {
+    const { currentSort } = this.state;
+    let nextSort;
+
+    if (currentSort === "down") {
+      nextSort = "up";
+    } else if (currentSort === "up") {
+      nextSort = "down";
+    } 
+
+    this.setState({ currentSort: nextSort });
+    console.log(this.state.currentSort);
+  };
+
+  
+
+
 
   formatDOB = dob => {
     let year = dob.slice(0,4);
@@ -23,12 +42,12 @@ class Directory extends Component {
     
     let newDate = month + "/" + day + "/" + year;
     return newDate;
-  }
+  };
   
   formatName = (first, last) => {
     let fullName = last + ", " + first;
     return fullName;
-  }
+  };
 
   componentDidMount() {
     API.getEmployeesList()
@@ -63,7 +82,7 @@ class Directory extends Component {
 
   // console.log(`This.state: ${this.state.employees}`);
   render() {
-    console.log(this.state.employees);
+    
     return (
       <div>
         <Container>
@@ -82,6 +101,8 @@ class Directory extends Component {
               <EmployeeList 
                 employees={this.state.employees}
                 search={this.state.search}
+                currentSort={this.state.currentSort}
+                onSortChange={this.onSortChange}
               />
             </Col>
           </Row>
