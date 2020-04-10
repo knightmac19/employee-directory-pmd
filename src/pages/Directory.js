@@ -31,8 +31,6 @@ class Directory extends Component {
     console.log(this.state.currentSort);
   };
 
-  
-
 
 
   formatDOB = dob => {

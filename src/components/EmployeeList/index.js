@@ -53,7 +53,7 @@ function EmployeeList(props) {
         <tr>
           <th scope="col">Image</th>
           <th scope="col">
-            Last, First 
+            Name
             <span> </span>
             <button onClick={props.onSortChange}>
               <i className={`fas fa-chevron-${sortTypes[props.currentSort].name.class}`} />
