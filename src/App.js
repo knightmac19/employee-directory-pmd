@@ -13,7 +13,7 @@ function App() {
       <div>
         <Header />
         <Wrapper>
-          <Route exact path="/" component={Directory} />
+        <Route exact path="/employee-directory-pmd" component={Directory} />
         </Wrapper>
         <Footer />
       </div>
