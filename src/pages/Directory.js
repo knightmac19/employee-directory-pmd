@@ -50,6 +50,7 @@ class Directory extends Component {
   componentDidMount() {
     API.getEmployeesList()
       .then(res => {
+        console.log("component Mounted");
         console.log(res.data.results);
         
         let newObj = res.data.results.map(emp => {
