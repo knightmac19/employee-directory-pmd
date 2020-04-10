@@ -13,7 +13,8 @@ class Directory extends Component {
   state = {
     search: "",
     employees: [],
-    error: ""
+    error: "",
+    currentSort: "up"
   };
 
   onSortChange = () => {
@@ -99,6 +100,8 @@ class Directory extends Component {
               <EmployeeList 
                 employees={this.state.employees}
                 search={this.state.search}
+                onSortChange={this.onSortChange}
+                currentSort={this.state.currentSort}
               />
             </Col>
           </Row>
