@@ -39,12 +39,12 @@ class Directory extends Component {
     
     let newDate = month + "/" + day + "/" + year;
     return newDate;
-  }
+  };
   
   formatName = (first, last) => {
     let fullName = last + ", " + first;
     return fullName;
-  }
+  };
 
   componentDidMount() {
     API.getEmployeesList()
