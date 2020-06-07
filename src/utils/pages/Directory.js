@@ -31,6 +31,8 @@ class Directory extends Component {
     console.log(this.state.currentSort);
   };
 
+
+
   formatDOB = dob => {
     let year = dob.slice(0,4);
     let month = dob.slice(5,7);
@@ -107,6 +109,10 @@ class Directory extends Component {
       </div>
     );
   }
+
+
+
+
 }
 
 
