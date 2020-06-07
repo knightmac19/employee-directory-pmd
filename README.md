@@ -10,7 +10,7 @@ As a business manager I want the ability to instantly call up an employee's prof
 Users can view all employees, sort ascending/descending by last name, and filter across all categories by typing in the search bar.
 
 ### Screenshot
-
+![alt text](https://github.com/knightmac19/employee-directory-pmd/blob/master/public/empDirScreenshot.png)
 
 ### Technologies Used
 - React 
