@@ -23,33 +23,15 @@
 
 - [Languages](#languages)
 - [Description](#description)
-- [Features](#features)
-- [Motivation](#motivation)
-- [Usage](#usage)
-- [Challenges](#challenges)
 - [Contributors](#contributors)
 - [License](#license)
 
-![screenshot](https://github.com/knightmac19/employee-directory-pmd/blob/master/public/empDirScreenshot.png)
+![screenshot](./public/empDirScreenshot.png)
 
 ## <a id="description"></a> Description
 
 [Contents](#contents)  
 As a manager I want the abilityt o instantly call up an employee's profile by searching across several categories. Users can sort the table ascending & descending by name, as well as filter across all properties by using the search bar. The table is update on each keystroke rather than requiring users to click any buttons.
-
-## <a id="features"></a> Features
-
-[Contents](#contents)
-
-## <a id="motivation"></a> Motivation
-
-[Contents](#contents)
-
-## <a id="usage"></a> Usage
-
-[Contents](#contents)
-
-## <a id="challenges"></a> Challenges & Lessons Learned
 
 [Contents](#contents)
 
